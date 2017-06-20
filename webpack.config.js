@@ -42,10 +42,13 @@ module.exports = {
  },
  plugins: [
   new HtmlWebpackPlugin({
-    title: 'Output Management',
+    title: 'Page Title',
     favicon: './src/favicon.ico'
   }),
   new webpack.HotModuleReplacementPlugin(),
-  new ExtractTextPlugin('styles.css')
+  new ExtractTextPlugin('styles.css'),
+  new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendor'
+  })
  ]
 };
