@@ -2,7 +2,7 @@ import './polyfill';
 import _ from 'lodash';
 import AmericanFlagPath from './img/american-flag.png';
 import LatoPath from './fonts/lato.woff2';
-import './css/style.css';
+import './css/style.pcss';
 
 function bootstrap() {
   document.body.appendChild(component());

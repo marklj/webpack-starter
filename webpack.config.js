@@ -29,7 +29,7 @@ module.exports = {
 
      // styles / css
      {
-       test: /\.css$/,
+       test: /\.(css|pcss)$/,
        use: ExtractTextPlugin.extract({
          use: [
              {
