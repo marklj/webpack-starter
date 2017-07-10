@@ -3,6 +3,8 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
+var buildDir = 'dist';
+
 module.exports = {
 
   entry: {
@@ -12,13 +14,13 @@ module.exports = {
 
   output: {
     filename: '[name].bundle.js',
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, buildDir),
     publicPath: '/'
   },
 
   devServer: {
     hot: true, // Tell the dev-server we're using HMR
-    contentBase: path.resolve(__dirname, 'dist'),
+    contentBase: path.resolve(__dirname, buildDir),
     publicPath: '/'
   },
 
@@ -38,6 +40,14 @@ module.exports = {
            ],
         })
      },
+
+     // html / templates
+     {
+        test: /\.html$/,
+        use: [
+          "html-loader"
+        ]
+      },
 
      // images
      {
@@ -61,7 +71,9 @@ module.exports = {
  plugins: [
   new HtmlWebpackPlugin({
     title: 'Page Title',
-    favicon: './src/favicon.ico'
+    //favicon: './src/favicon.ico',
+    template: './src/layouts/default.html'
+
   }),
   new webpack.HotModuleReplacementPlugin(),
   new ExtractTextPlugin('styles.css'),

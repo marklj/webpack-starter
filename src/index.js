@@ -1,13 +1,18 @@
+import './polyfill';
 import _ from 'lodash';
 import AmericanFlagPath from './img/american-flag.png';
 import LatoPath from './fonts/lato.woff2';
 import './css/diff-tool.css';
 
+function bootstrap() {
+  document.body.appendChild(component());
+  document.body.appendChild(flag());
+}
 
 function component () {
-  var element = document.createElement('h1');
+  var element = document.createElement('h2');
 
-  element.innerHTML = _.join(['Hello, ', 'webpack'], ' ');
+  element.innerHTML = _.join(['Hello, ', 'world'], ' ');
   element.innerHTML += '!';
 
   return element;
@@ -21,5 +26,4 @@ function flag () {
   return img;
 }
 
-document.body.appendChild(component());
-document.body.appendChild(flag());
+bootstrap();
